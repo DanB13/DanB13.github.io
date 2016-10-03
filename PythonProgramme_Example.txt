@@ -1,0 +1,100 @@
+
+'''Program to solve Schrodinger's Equation for Hydrogen, plot the Probability Density wavefunctions and return Energy values for other states'''
+
+import numpy
+import scipy.integrate
+import matplotlib.pyplot as plt  # import relevant modules
+import time  #This module is purely for measuring efficiency of code.
+
+
+#returns input values for solving the schrodinger equation, n and l can be changed as desired. 
+#These are the values of the masses of an electron, proton and alpha (fine-structure) constant.
+def get_input_data():   
+    reduced_mass = 0.510998910
+    alpha = 7.29735257e-03
+    beta = 0
+    n = 2
+    l = 0
+    E1 = -9e-6
+    E3 = -1e-6
+    return reduced_mass, alpha, beta, n, l, E1, E3  
+
+
+#create schrodinger equation for hydrogen
+#Reduced Radial Schrodinger Equation (hc = 1; has been assumed)
+
+def hydrogen_se(Unl, r, l, E_nl):
+    SE_part = ((l*(l+1))/(r**2))-((2*reduced_mass)*(E_nl+((alpha/r))))
+    return (Unl[1], (SE_part)*Unl[0])
+
+#solve schrodinger equation for hydrogen using the scipy.inegrate.odeint function
+
+def solve_hydrogen_se(r, E_nl, l):
+    solve_se = [0., 1.]
+    return scipy.integrate.odeint(hydrogen_se, solve_se, r, args=(l, E_nl, ))
+
+#function to calculate the number of points that pass through the x axis
+
+def find_number_intersect_points(object_array):
+    num_intersect_points = 0
+    for i in range(len(object_array)-1):
+        if object_array[i]*object_array[i+1] <= 0:               #if the sign changes between two points then the graph must have crossed the x axis
+            num_intersect_points = num_intersect_points + 1
+    return num_intersect_points                       
+
+#Function that iterates towards the correct energy where the number of turning points is given as n-l-1
+#This function needs tightening up as clear inefficiencies not looping over the arrays.
+
+def iterate_towards_energy(E1, E3, radius, n, l):
+    while abs(E3-E1)> 1e-9: #condition on the accuracy of the energy values
+        E2 = 0.5*(E1+E3)
+        E123 = [E1, E2, E3]
+        wavefunction_E1 = solve_hydrogen_se(radius, E1, l)
+        wavefunction_E2 = solve_hydrogen_se(radius, E2, l)
+        wavefunction_E3 = solve_hydrogen_se(radius, E3, l)
+        t_E1 = find_number_intersect_points(wavefunction_E1[:,1])
+        t_E2 = find_number_intersect_points(wavefunction_E2[:,1])
+        t_E3 = find_number_intersect_points(wavefunction_E3[:,1])
+        n_E1 = find_number_intersect_points(wavefunction_E1[:,0])
+        n_E2 = find_number_intersect_points(wavefunction_E2[:,0])
+        n_E3 = find_number_intersect_points(wavefunction_E3[:,0])
+        while n_E1 != n_E2 != n-l-2 and t_E1 != t_E2 != n-l-1:
+            E3 = E2
+            E2 = 0.5*(E1+E3)
+            wavefunction_E1 = solve_hydrogen_se(radius, E1, l)
+            wavefunction_E2 = solve_hydrogen_se(radius, E2, l)
+            wavefunction_E3 = solve_hydrogen_se(radius, E3, l)
+            t_E1 = find_number_intersect_points(wavefunction_E1[:,1])
+            t_E2 = find_number_intersect_points(wavefunction_E2[:,1])
+            t_E3 = find_number_intersect_points(wavefunction_E3[:,1])
+            n_E1 = find_number_intersect_points(wavefunction_E1[:,0])
+            n_E2 = find_number_intersect_points(wavefunction_E2[:,0])
+            n_E3 = find_number_intersect_points(wavefunction_E3[:,0])
+        if n_E2 != n_E3 != n-l-2 or t_E2 != t_E3 != n-l-1:
+            E1 = E2
+            E2 = 0.5*(E1+E3)
+    return E2
+
+
+if __name__ == "__main__":
+
+    start = time.time()
+    reduced_mass, alpha, beta, n, l, E1, E3 = get_input_data()
+    radius = numpy.linspace(0.1,7000,1000)  #create radius limits, starting at 0 will give an undefined error if l does not = 1
+    Enl_hydrogen = iterate_towards_energy(E1, E3, radius, n, l)   # iterate towards the correct energy using the function
+    hydrogen_wavefunction = solve_hydrogen_se(radius, Enl_hydrogen, l)
+    print "The energy of the n=2, l=1 state is", Enl_hydrogen ,"Mev" #returns the value of the energy for the 2,1 state to the user
+    scaling_factor = scipy.integrate.simps((abs(hydrogen_wavefunction[:,0])**2), radius) #normalises the probability density function
+    max_radius = radius[hydrogen_wavefunction[:,0].argmax()]  # Find the value of the radius corresponding to the maximum probability density
+    print "The maximum probability density is at a radius of", max_radius ,"Mev^-1" # prints the value of the radius where it is greatest
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.set_xlabel("Radius (MeV^-1)")
+    ax.set_title("Radial Probability Density Function of Hydrogen in the n=2, l=1 state")
+    ax.set_ylabel("Radial Probability Density abs[Unl(r)]^2")
+    energy_text = 'En=',n,'l=',l,'is', Enl_hydrogen ,'MeV'
+    ax.text(2000, 0.0005, energy_text, style='italic', bbox={'facecolor':'blue', 'alpha':0.5, 'pad':10})
+    ax.plot(radius, (abs(hydrogen_wavefunction[:,0])**2)/scaling_factor)
+    plt.show() # plots radial probability density of the wave function in the 2,1 state
+    elapsed =time.time()-start
+    print elapsed
