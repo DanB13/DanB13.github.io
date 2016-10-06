@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1404.47">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #9a9c97}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #2d2d2d}
+    span.s1 {color: #00a5a6}
+    span.s2 {color: #2d2d2d}
+    span.s3 {color: #9a9c97}
+    span.s4 {color: #e48500}
+    span.s5 {color: #4179b3}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">static</span><span class="s2"> </span><span class="s1">double</span><span class="s2">[] Problem009Solution()<br>
+<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span>//A Pythagorean triplet is a set of three natural numbers, a &lt; b &lt; c, for which, a^2 + b^2 = c^2</p>
+<p class="p2"><span class="s3"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>//For example, 32 + 42 = 9 + 16 = 25 = 52.<br>
+</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="s3">//There exists exactly one Pythagorean triplet for which a + b + c = 1000.<br>
+</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="s3">//Find the product abc.<br>
+</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{<br>
+<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="s1">double</span>[] myAnswer = <span class="s1">new</span> <span class="s1">double</span>[<span class="s4">4</span>];<br>
+<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="s1">for</span> (<span class="s1">int</span> i = <span class="s4">1</span>; i &lt; <span class="s4">333</span>; i++)<br>
+<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{<span class="s3"><br>
+</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="s1">for</span> (<span class="s1">int</span> j = i+<span class="s4">1</span>; j &lt; ((<span class="s4">1000</span>-i)/<span class="s4">2</span>); j++)<br>
+<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{<br>
+<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="s1">if</span> (<span class="s5">Math</span>.Pow((<span class="s4">1000</span> - i - j), <span class="s4">2</span>) == <span class="s5">Math</span>.Pow(i, <span class="s4">2</span>) + <span class="s5">Math</span>.Pow(j, <span class="s4">2</span>))<br>
+<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>{<br>
+<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>myAnswer[<span class="s4">0</span>] = i;<br>
+<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>myAnswer[<span class="s4">1</span>] = j;<br>
+<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>myAnswer[<span class="s4">2</span>] = (<span class="s4">1000</span> - i - j);<br>
+<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>myAnswer[<span class="s4">3</span>] = (i * j * (<span class="s4">1000</span> - i - j));<br>
+<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>}<br>
+<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>}<span class="s3"><br>
+</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>}<br>
+<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="s1">return</span> myAnswer;<span class="Apple-converted-space">  <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span><span class="s3">//Returns an array with 4 values: a, b, c, abc</span></p>
+<p class="p2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>}<br>
+</p>
+</body>
+</html>
