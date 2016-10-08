@@ -17,11 +17,15 @@
         color: #959AA0;  /*grey*/
       }
 </style>
+<!-- <span class="modifier">teal text</span> -->
+<!-- <span class="class">blue text</span> -->
+<!-- <span class="object">orange text</span> -->
+<!-- <span class="comments">grey text</span> -->
 <pre>
-static double[] Problem009Solution()
+<span class="modifier">static double[]</span> Problem009Solution()
 		{
-			double[] myAnswer = new double[4];
-			for (int i = 1; i < 333; i++)
+			<span class="modifier">double[]</span> myAnswer = <span class="modifier">new double</span>[4];
+			<span class="modifier">for</span> (<span class="modifier">int</span> i = <span class="object">1</span>; i < <span class="object">333</span>; i++)
 			{
 				for (int j = i+1; j < ((1000-i)/2); j++)
 				{
@@ -36,11 +40,5 @@ static double[] Problem009Solution()
 			}
 			return myAnswer;
 </pre>
-<script>
-$("body p").highlight("default");
-$("body p").highlight("static", { className: 'modifier' });
-$("body p").highlight("Console", { className: 'class' });
-$("body p").highlight("20", { className: 'object' });
-	</script>
 </body>
 </html>
