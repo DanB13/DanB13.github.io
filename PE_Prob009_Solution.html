@@ -5,7 +5,7 @@
 <style type="text/css">
       p
       .modifier {
-        color: #30E194;  /*teal*/
+        color: #008080;  /*teal*/
       }
       .class {
         color: #6D9EE9;  /*blue*/
@@ -27,7 +27,7 @@
 			<span class="modifier">double[]</span> myAnswer = <span class="modifier">new double</span>[4];
 			<span class="modifier">for</span> (<span class="modifier">int</span> i = <span class="object">1</span>; i < <span class="object">333</span>; i++)
 			{
-				for (int j = i+1; j < ((1000-i)/2); j++)
+				<span class="modifier">for</span> (<span class="modifier">int</span> j = i+<span class="modifier">1</span>; j < ((<span class="modifier">1000</span>-i)/<span class="modifier">2</span>); j++)
 				{
 					if (Math.Pow((1000 - i - j), 2) == Math.Pow(i, 2) + Math.Pow(j, 2))
 					{
