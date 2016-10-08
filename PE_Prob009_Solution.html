@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<style type="text/css">
+      p
+      .modifier {
+        color: #30E194;  /*teal*/
+      }
+      .class {
+        color: #6D9EE9;  /*blue*/
+      }
+      .object {
+        color: #F5AC55; /*orange*/
+      }
+      .comments {
+        color: #959AA0;  /*grey*/
+      }
+</style>
+<pre>
+static double[] Problem009Solution()
+		{
+			double[] myAnswer = new double[4];
+			for (int i = 1; i < 333; i++)
+			{
+				for (int j = i+1; j < ((1000-i)/2); j++)
+				{
+					if (Math.Pow((1000 - i - j), 2) == Math.Pow(i, 2) + Math.Pow(j, 2))
+					{
+						myAnswer[0] = i;
+						myAnswer[1] = j;
+						myAnswer[2] = (1000 - i - j);
+						myAnswer[3] = (i * j * (1000 - i - j));
+					}
+				}
+			}
+			return myAnswer;
+</pre>
+
+$("body p").highlight("default");
+$("body p").highlight("static", { className: 'modifier' });
+$("body p").highlight("Console", { className: 'class' });
+$("body p").highlight("20", { className: 'object' });
+</body>
+</html>
