@@ -1,0 +1,31 @@
+static int Problem012Solution()
+		{
+			//Set intial variables.
+			//triangular number set as a double so it can be divided by 2.
+			int numberOfFactors = 0;
+			double triangularNumber = new double();
+			int myAnswer = 0;
+			int nthTerm = 1;
+			//while conditional loop continues iteration until 500 factors found.
+			while (myAnswer != 500)
+			{
+				{
+					triangularNumber = (nthTerm * (nthTerm + 1)* 0.5);  //creates triangular number. would be better to create separate function
+					for (int j = 1; j <= (triangularNumber/2); j++)   //factors of tri. num. will always be <trinum/2. except for number itself
+					{
+						if ((triangularNumber%j) == 0) // condition if triangular number is divisible without remainder
+						{
+							numberOfFactors = numberOfFactors + 1;  //add 1 to factor count.
+						}
+					}
+					if (numberOfFactors > myAnswer)
+					{
+						myAnswer = numberOfFactors; //save the highest value current value and print terms for reference
+						Console.WriteLine("nthTerm = {0}, triangularNumber = {1}, myAnswer = {2}", nthTerm, triangularNumber, myAnswer);
+					}
+					numberOfFactors = 1;  //reset number of Factors (see for loop j)
+					nthTerm += 1; //check next triangualr number.
+				}
+			}
+			return myAnswer;
+		}
