@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+<pre>
+import time
+start=time.time()
+import numpy as np
+input_array=np.zeros(100)
+output_array=[]
+with open('p067_triangle.txt','r') as inputfile:
+        for line in inputfile:
+            file_line=np.array(map(int,line.split(' ')))
+            file_line.resize(input_array.shape)
+            file_line+=input_array
+            output_array=np.append(output_array,file_line)
+output_array=output_array.reshape(100,100)
+for i in range(len(output_array[:,0])-1,-1,-1):                                      
+    for j in range(i):                             
+        output_array[i-1,j]+=max(output_array[i,j],output_array[i,j+1])
+print 'Sum of maximum', int(output_array[0,0])    
+elapsed = (time.time()-start)
+print 'Time taken:', elapsed, 's'
+</pre>
+</body>
+</html>
