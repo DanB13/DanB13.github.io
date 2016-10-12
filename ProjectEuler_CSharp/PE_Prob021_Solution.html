@@ -1,0 +1,38 @@
+<!DOCTYPE>
+<html>
+<body>
+<pre>
+static int Problem021Solution(int amLimit)
+		{
+			int myAnswer = 0;
+			//Console.WriteLine("amLimit = {0}", amLimit);
+			for (int i = 1; i <= amLimit; i++)
+			{
+				//Console.WriteLine("i = {0}", i);
+				for (int j = i+1; j <= amLimit; j++)
+				{
+					//Console.WriteLine("i = {0}, j = {1}", i,j);
+					if (FindDivisorsSum(i) == j && FindDivisorsSum(j) == i)
+					{
+						myAnswer = myAnswer + i + j;
+						Console.WriteLine("Variables: i={0}, FindDivisorsSum(i)={1}, j={2}, FindDivisorsSum(j)={3}, Sum = {4}", i, FindDivisorsSum(i), j, FindDivisorsSum(j), myAnswer); 
+					}
+				}
+			}
+			{ return myAnswer; }
+		}
+    static int FindDivisorsSum(int myNumber)
+		{
+			int divSum = 0;
+			for (int i = 1; i <= (myNumber / 2); i++)
+			{
+			 if (myNumber % i == 0)
+				{
+					divSum = divSum+i;
+				}
+			}
+			{ return divSum; }
+		}
+</pre>
+</body>
+</html>
