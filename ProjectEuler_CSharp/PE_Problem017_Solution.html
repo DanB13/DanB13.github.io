@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<body>
+<pre>
+    static int Problem017Solution()
+		{
+			int mySolution = 0;
+			for (int i = 0; i <= 1000; i++)
+			{
+				mySolution += wordNumberFunction(i).Length;
+			}
+			Console.WriteLine("Total number of letters is: {0}", mySolution);
+			{ return mySolution; }
+		}
+		enum wordNumbersEnum //declare enum converting numbers to words!
+		{
+			one=1,
+			two=2,
+			three=3,
+			four=4,
+			five=5,
+			six=6,
+			seven=7,
+			eight=8,
+			nine=9,
+			ten=10,
+			eleven=11,
+			twelve=12,
+			thirteen=13,
+			fourteen=14,
+			fifteen=15,
+			sixteen=16,
+			seventeen=17,
+			eighteen=18,
+			nineteen=19,
+			twenty=20, 
+			thirty=30,
+			forty=40,
+			fifty=50,
+			sixty=60, 
+			seventy=70,
+			eighty=80,
+			ninety=90,
+			hundred=100,
+			and=101,
+			onethousand = 1000,
+		}
+		public static string wordNumberFunction(int inputNumber)
+		{
+			//This function returns the string of a the inputNumber
+			string wordNumber = "";
+			wordNumbersEnum wordHundreds;
+			wordNumbersEnum wordTens;
+			wordNumbersEnum wordUnits;
+			wordNumbersEnum wordAnds;
+			int numberHundreds = new int();
+			int numberTens = new int();
+			int numberUnits = new int();
+			int numberAnds = 101;
+			wordAnds = (wordNumbersEnum)Enum.Parse(typeof(wordNumbersEnum), numberAnds.ToString());
+			if (inputNumber == 1000)
+			{
+				wordHundreds = (wordNumbersEnum)Enum.Parse(typeof(wordNumbersEnum), inputNumber.ToString());
+				wordNumber = wordHundreds.ToString();
+			}
+			numberTens = (inputNumber % 100); //ie 476 should return 76.  
+			if (inputNumber >= 100 && inputNumber <= 999)
+			{
+				numberHundreds = (inputNumber / 100); // ie 476 should return 4.
+				wordHundreds = (wordNumbersEnum)Enum.Parse(typeof(wordNumbersEnum), numberHundreds.ToString());
+				wordNumber = wordHundreds.ToString() + "hundred";
+				if (numberTens != 0)
+				{
+					wordNumber = wordNumber + wordAnds;
+				}
+			}
+			if (numberTens != 0)
+			{
+				if (numberTens <= 20)
+				{
+					wordTens = (wordNumbersEnum)Enum.Parse(typeof(wordNumbersEnum), numberTens.ToString());
+					wordNumber = wordNumber + wordTens;
+				}
+				else //ie inputNumberArray[1] between 21 & 99: 
+				{
+					numberUnits = (numberTens % 10); //ie 76 should return 6
+					numberTens = (numberTens / 10) * 10; //ie 76 should return 70
+					wordTens = (wordNumbersEnum)Enum.Parse(typeof(wordNumbersEnum), numberTens.ToString());
+					wordNumber = wordNumber + wordTens;
+					if (numberUnits != 0)
+					{
+						wordUnits = (wordNumbersEnum)Enum.Parse(typeof(wordNumbersEnum), numberUnits.ToString());
+						wordNumber = wordNumber + wordUnits;
+					}
+				}
+			}
+			Console.WriteLine("{0} as a word:\t{1} Length: {2}", inputNumber, wordNumber, wordNumber.Length);
+			{ return wordNumber; }
+		}
+</pre>
+</body>
+</html>
