@@ -45,7 +45,7 @@ def solve_hydrogen_se(r, E_nl, l):
 def find_number_intersect_points(object_array):
     num_intersect_points = 0
     for i in range(len(object_array)-1):
-        if object_array[i]*object_array[i+1] = 0:               #if the sign changes between two points then the graph must have crossed the x axis
+        if object_array[i]*object_array[i+1] <= 0:               #if the sign changes between two points then the graph must have crossed the x axis
             num_intersect_points = num_intersect_points + 1
     return num_intersect_points                       
 
