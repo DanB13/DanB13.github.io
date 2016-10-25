@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-eqiv="refresh" content="0; URL='http://DanB13.github.io/DropDown_NavPage.html'" >
+<title>Redirect Page</title>
+<meta http-equiv="refresh" content="0; URL='http://DanB13.github.io/DropDown_NavPage.html'" />
+<!-- <meta http-equiv="refresh" content="0; URL='http://new-website.com'" /> -->
 </head>
 </html>
