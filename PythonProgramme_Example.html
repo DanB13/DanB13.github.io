@@ -1,10 +1,12 @@
 <!DOCTYPEhtml>
 <html>
+        
 <script type="text/javascript" src="/shCore.js"></script>
 <script type="text/javascript" src="/shBrushPython.js"></script>
 <link href="/shCore.css" rel="stylesheet" type="text/css" />
 <link href="/shThemeDefault.css" rel="stylesheet" type="text/css" />
-<script type="syntaxhighlighter" class="brush: py"><![CDATA[
+<body>
+<pre>
 '''Program to solve Schrodingers Equation for Hydrogen, plot the Probability Density wavefunctions and return Energy values for other states'''
 
 import numpy
@@ -44,7 +46,7 @@ def solve_hydrogen_se(r, E_nl, l):
 def find_number_intersect_points(object_array):
     num_intersect_points = 0
     for i in range(len(object_array)-1):
-        if object_array[i]*object_array[i+1] <= 0:               #if the sign changes between two points then the graph must have crossed the x axis
+        if object_array[i]*object_array[i+1] &lt;= 0:               #if the sign changes between two points then the graph must have crossed the x axis
             num_intersect_points = num_intersect_points + 1
     return num_intersect_points                       
 
@@ -104,7 +106,8 @@ if __name__ == "__main__":
     plt.show() # plots radial probability density of the wave function in the 2,1 state
     elapsed =time.time()-start
     print elapsed
-]]></script>
+</pre>
+</body>
 </html>
 
 
