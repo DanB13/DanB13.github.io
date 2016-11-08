@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>NewHomepage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/Footer-with-button-logo.css">
+  </head>
+  <body>
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://danb13.github.io"><i class="fa fa-hand-spock-o" style="color:#999999"></i> DanB13</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Resum&#233;<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/DanBoddingtonCVOct16.pdf">Latest Resum&#233;</a></li>
+            <li><a href="https://uk.linkedin.com/in/dan-boddington-1223b7bb"><span class="fa fa-linkedin-square"></span>  LinkedIn</a></li>
+          </ul>
+        </li>
+        <li class="dropdown active">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="ProjectEuler.html">Project Euler Problems<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/ProjectEuler.html">AllProblems</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Solutions in C# (Not Active Yet)</a></li>
+            <li><a href="#">Solutions in Python (Not Active Yet)</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Commercial Projects<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="http://www.boddingtonsplanning.com">BoddingtonsPlanning(Website)</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">University Projects<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/PythonProgramme_Example.html">Quarkonium (Level 3)</a></li>
+            <li><a href="/ProgammingContent/LaTeX/TeamProject_Intro.html">LaTeX Project</a></li>
+        </ul>
+       </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Raspberry Pi Projects<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Wifi Controlled Lights (Coming Soon)</a></li>
+          </ul>
+        </li>
+      </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="mailto:danielcgboddington@gmail.com"><span class="glyphicon glyphicon-envelope"></span> Contact Me</a></li>
+        </ul>
+       </div>
+      </div>
+    </nav>
+  <div class="container">
+    <br>
+    <br>
+    <h2>Project Euler Problem 19 Solution</h2>
+    <h3>Problem 19 Counting Sundays</h3>
+    <p>You are given the following information, but you may prefer to do some research for yourself.<p>
+    <p>
+    <ul>
+    <li>1 Jan 1900 was a Monday.</li>
+    <li><pre>Thirty days has September,
+Thirty days has September,
+April, June and November.
+All the rest have thirty-one,
+Saving February alone,
+Which has twenty-eight, rain or shine.
+And on leap years, twenty-nine.</pre></li>
+<li>A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.<li><p>
+<p>How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?<p>
+
+    <pre>static int Problem019Solution()
+		{
+												//Set intial conditions
+			int dayofWeek = 2; 					//1st of Jan 1901 = Tuesday.
+			int firstMonthSundays = 0; 			//start count of Sundays that fall on the first of the month.
+			for (int i = 1901; i &lt;= 2000; i++) 	//Loop over each year
+			{
+				for (int j = 1; j &lt;= 12; j++)	//Loop over each month
+				{
+					Console.WriteLine("i = {0}, j = {1}", i, j);
+					int monthDays = NumberOfDays(i, j); //Returns number of days, given month and year
+					dayofWeek += monthDays % 28;
+					if (dayofWeek % 7 == 0)
+					{
+						firstMonthSundays += 1;
+						dayofWeek = 0;
+					}
+				}
+			}
+			{ return firstMonthSundays; }
+		}
+		static int NumberOfDays(int Year, int month)
+		{
+			int monthDays = 0;
+			if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
+			{
+				monthDays = 31;
+			}
+			if (month == 4 || month == 6 || month == 9 || month == 11)
+			{
+				monthDays = 30;
+			}
+			if (month == 2 && Year%4 == 0)
+			{
+				monthDays = 29;
+			}
+			if (month == 2)
+			{
+				monthDays = 28;
+			}
+			{return monthDays;}
+		}
+    </pre>
+    </div>
+    <footer id="myFooter">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h2 class="logo">  <a class="fa fa-hand-spock-o" style="color:white"></a> DanB13</h2>
+                </div>
+                <div class="col-sm-2">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="https://danb13.github.io/">Home</a></li>
+                        <li><a href="https://danb13.github.io/DanBoddingtonCVOct16.pdf">Latest Resum&#233;</a></li>
+                        <li><a href="/ProjectEuler.html">Python &amp; C# Examples</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <h5>About</h5>
+                    <ul>
+                        <li><a href="#">About Me</a></li>
+                        <li><a href="mailto:danielcgboddington@gmail.com">Contact Me</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+              </div>
+                <div class="col-sm-4">
+                    <div class="social-networks">
+                        <a href="https://uk.linkedin.com/in/dan-boddington-1223b7bb" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                        <a href="https://github.com/DanB13" class="github"><i class="fa fa-github"></i></a>
+                        <a href="https://projecteuler.net/" class="projecteuler"><i class="fa fa-file-code-o"></i></a>
+                    </div>
+                  <a href="mailto:danielcgboddington@gmail.com" type="button" class="btn btn-default">Contact Me</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>Created &amp; Designed by <strong>Dan Boddington</strong></p>
+        </div>
+    </footer>
+    </body>
+    </html>
