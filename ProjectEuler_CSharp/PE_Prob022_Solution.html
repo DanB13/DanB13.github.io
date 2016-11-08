@@ -6,9 +6,9 @@ static int Problem022Solution()
 		{
 			string fileContents = File.ReadAllText(@"/Users/danboddington/Documents/Programming/Project Euler/p022_names.txt");
 			string[] firstNames = fileContents.Split(',');
-			Array.Sort<string>(firstNames);
+			Array.Sort&lt;string&gt;(firstNames);
 			int LetterSum_Index = 0;
-			for (int i =0; i<firstNames.Length;i++)
+			for (int i =0; i&lt;firstNames.Length;i++)
 			{
 				int letterNumber = 60;
 				foreach (char letter in firstNames[i])
