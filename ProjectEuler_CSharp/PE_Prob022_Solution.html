@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<pre>
+static int Problem022Solution()
+		{
+			string fileContents = File.ReadAllText(@"/Users/danboddington/Documents/Programming/Project Euler/p022_names.txt");
+			string[] firstNames = fileContents.Split(',');
+			Array.Sort<string>(firstNames);
+			int LetterSum_Index = 0;
+			for (int i =0; i<firstNames.Length;i++)
+			{
+				int letterNumber = 60;
+				foreach (char letter in firstNames[i])
+				{
+					letterNumber += char.ToUpper(letter) - 64;
+				}
+				LetterSum_Index += (i + 1) * letterNumber;
+			}
+			{ return LetterSum_Index; }
+		}
+</pre>
+</body>
+</html>
