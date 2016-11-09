@@ -88,9 +88,9 @@ And on leap years, twenty-nine.</li>
 								//Set intial conditions
 			int dayofWeek = 2; 			//1st of Jan 1901 = Tuesday.
 			int firstMonthSundays = 0; 		//start count of Sundays that fall on the first of the month.
-			for (int i = 1901; i &lt;= 2000; i++) 	//Loop over each year
+			for (int i = 1901; i <= 2000; i++) 	//Loop over each year
 			{
-				for (int j = 1; j &lt;= 12; j++)	//Loop over each month
+				for (int j = 1; j <= 12; j++)	//Loop over each month
 				{
 					Console.WriteLine("i = {0}, j = {1}", i, j);
 					int monthDays = NumberOfDays(i, j); 	//Returns number of days, given month and year
@@ -115,7 +115,7 @@ And on leap years, twenty-nine.</li>
 			{
 				monthDays = 30;
 			}
-			if (month == 2 &amp;&amp; Year%4 == 0)
+			if (month == 2 && Year%4 == 0)
 			{
 				monthDays = 29;
 			}
