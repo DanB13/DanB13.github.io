@@ -13,6 +13,38 @@
   <script>hljs.initHighlightingOnLoad();</script>
   <link rel="stylesheet" href="/Footer-with-button-logo.css">
   </head>
+<style>.spoiler {
+  border: 1px solid #808080;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.spoiler-toggle {
+  font-weight: bold;
+  cursor: default;
+  padding: 5px;
+  font-size: 10px;
+  color: #808080;
+}
+.spoiler-text {
+  padding: 5px;
+}</style>
+	
+<script>$(function(){
+    $('.spoiler-text').hide();
+    $('.spoiler-toggle').click(function(){
+        $(this).next().animate({height: 'toggle'});
+        if ($(this).html() == '<span class="glyphicon glyphicon-plus"></span> Spoiler!'){
+            $(this).html('<span class="glyphicon glyphicon-minus"></span> Spoiler!');
+        }
+        else{
+            $(this).html('<span class="glyphicon glyphicon-plus"></span> Spoiler!');
+    }
+    }); // end spoiler-toggle
+}); // end document ready
+</script>
+
+	
   <body>
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container-fluid">
@@ -128,6 +160,18 @@ And on leap years, twenty-nine.</li>
 		}
 		</code>
 		</pre>
+	  <div class="container">
+    <div class="row">
+        <div class="spoiler">
+            <div class="spoiler-toggle"><span class="glyphicon glyphicon-plus"></span> My Comments</div>
+            <div class="spoiler-text">
+                <p>>My Comments about the Solution are to follow here</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+	  
 	  <h2>My Comments</h2>
 	  <p><pre>My Comments about the Solution are to follow here</pre><p>
     </div>
