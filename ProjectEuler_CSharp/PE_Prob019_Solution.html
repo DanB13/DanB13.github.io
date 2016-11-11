@@ -28,7 +28,14 @@
 }
 .spoiler-text {
   padding: 5px;
-}</style>
+}
+p.fourtabs {
+    tab-size:4;
+    -moz-tab-size: 4;
+    -o-tab-size:  4;
+  white-space: pre-wrap;
+}
+</style>
 	
 <script>$(function(){
     $('.spoiler-text').hide();
@@ -116,14 +123,14 @@ And on leap years, twenty-nine.</li>
 <li>A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.</li><p></ul>
 <p>How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?<p></pre>
 	    <h3>Solution 19: Counting Sundays</h3>
-    <pre><code class="csharp">static int Problem019Solution()
+    <pre><code class="csharp"><p class="fourtabs">static int Problem019Solution()
 		{
 								//Set intial conditions
 			int dayofWeek = 2; 			//1st of Jan 1901 = Tuesday.
 			int firstMonthSundays = 0; 		//start count of Sundays that fall on the first of the month.
-			for (int i = 1901; i <= 2000; i++) 	//Loop over each year
+			for (int i = 1901; i &lt;= 2000; i++) 	//Loop over each year
 			{
-				for (int j = 1; j <= 12; j++)	//Loop over each month
+				for (int j = 1; j &lt;= 12; j++)	//Loop over each month
 				{
 					Console.WriteLine("i = {0}, j = {1}", i, j);
 					int monthDays = NumberOfDays(i, j); 	//Returns number of days, given month and year
@@ -148,7 +155,7 @@ And on leap years, twenty-nine.</li>
 			{
 				monthDays = 30;
 			}
-			if (month == 2 && Year%4 == 0)
+			if (month == 2 &amp;&amp; Year%4 == 0)
 			{
 				monthDays = 29;
 			}
@@ -158,7 +165,7 @@ And on leap years, twenty-nine.</li>
 			}
 			{return monthDays;}
 		}
-		</code>
+		</p></code>
 		</pre>
 	  <div class="container">
     <div class="row">
