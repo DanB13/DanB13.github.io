@@ -51,22 +51,23 @@
 	
 <pre>
 static double[] Problem009Solution()
+	{
+		double[] myAnswer = new double[4];
+		for (int i = 1; i &lt; 333; i++)
 		{
-			double[] myAnswer = new double[4];
-			for (int i = 1; i &lt; 333; i++)
+			for (int j = i + 1; j &lt; ((1000 - i) / 2); j++)
 			{
-				for (int j = i + 1; j &lt; ((1000 - i) / 2); j++)
+				if (Math.Pow((1000 - i - j), 2) &#61;&#61; Math.Pow(i, 2) + Math.Pow(j, 2))
 				{
-					if (Math.Pow((1000 - i - j), 2) &#61;&#61; Math.Pow(i, 2) + Math.Pow(j, 2))
-					{
-						myAnswer[0] = i;
-						myAnswer[1] = j;
-						myAnswer[2] = (1000 - i - j);
-						myAnswer[3] = (i * j * (1000 - i - j));
-					}
+					myAnswer[0] = i;
+					myAnswer[1] = j;
+					myAnswer[2] = (1000 - i - j);
+					myAnswer[3] = (i * j * (1000 - i - j));
 				}
 			}
-			{ return myAnswer;}
+		}
+	{ return myAnswer;}
+	}
 </pre>
 	<?php include("includes/footer.php");?>	
 </body>
