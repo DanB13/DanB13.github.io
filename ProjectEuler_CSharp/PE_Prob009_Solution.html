@@ -1,35 +1,62 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <title>NewHomepage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/dracula.min.css">
+  <script>hljs.initHighlightingOnLoad();</script>
+  <link rel="stylesheet" href="/Footer-with-button-logo.css">
+  </head>
+<style>.spoiler {
+  border: 1px solid #808080;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.spoiler-toggle {
+  font-weight: bold;
+  cursor: default;
+  padding: 5px;
+  font-size: 10px;
+  color: #808080;
+}
+.spoiler-text {
+  padding: 5px;
+}</style>
+	
+<script>$(function(){
+    $('.spoiler-text').hide();
+    $('.spoiler-toggle').click(function(){
+        $(this).next().animate({height: 'toggle'});
+        if ($(this).html() == '<span class="glyphicon glyphicon-plus"></span> Spoiler1!'){
+            $(this).html('<span class="glyphicon glyphicon-minus"></span> Spoiler2!');
+        }
+        else{
+            $(this).html('<span class="glyphicon glyphicon-plus"></span> Spoiler3!');
+    }
+    }); // end spoiler-toggle
+}); // end document ready
+</script>
+	
 <body>
-
-<style type="text/css">
-      p
-      .modifier {
-        color: #008080;  /*teal*/
-      }
-      .class {
-        color: #6D9EE9;  /*blue*/
-      }
-      .object {
-        color: #F5AC55; /*orange*/
-      }
-      .comments {
-        color: #959AA0;  /*grey*/
-      }
-</style>
-<!-- <span class="modifier">teal text</span> -->
-<!-- <span class="class">blue text</span> -->
-<!-- <span class="object">orange text</span> -->
-<!-- <span class="comments">grey text</span> -->
+	
+<?php include("includes/header.php");?>	
+	
 <pre>
-<span class="modifier">static double[]</span> Problem009Solution()
+static double[] Problem009Solution()
 		{
-			<span class="modifier">double<span>[] myAnswer = <span class="modifier">new double</span>[4];
-			<span class="modifier">for</span> (<span class="modifier">int</span> i = <span class="object">1</span>; i < <span class="object">333</span>; i++)
+			double[] myAnswer = new double[4];
+			for (int i = 1; i &lt; 333; i++)
 			{
-				<span class="modifier">for</span> (<span class="modifier">int</span> j = i+<span class="modifier">1</span>; j < ((<span class="modifier">1000</span>-i)/<span class="modifier">2</span>); j++)
+				for (int j = i + 1; j &lt; ((1000 - i) / 2); j++)
 				{
-					if (Math.Pow((1000 - i - j), 2) == Math.Pow(i, 2) + Math.Pow(j, 2))
+					if (Math.Pow((1000 - i - j), 2) &#61;&#61; Math.Pow(i, 2) + Math.Pow(j, 2))
 					{
 						myAnswer[0] = i;
 						myAnswer[1] = j;
@@ -38,7 +65,8 @@
 					}
 				}
 			}
-			return myAnswer;
+			{ return myAnswer;}
 </pre>
+	<?php include("includes/footer.php");?>	
 </body>
 </html>
