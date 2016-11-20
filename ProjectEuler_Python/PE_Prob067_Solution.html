@@ -1,9 +1,131 @@
-<!DOCTYPE>
-<html>
-<body>
-<pre>
-import time
-start=time.time()
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>NewHomepage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/dracula.min.css">
+  <script>hljs.initHighlightingOnLoad();</script>
+  <link rel="stylesheet" href="/Footer-with-button-logo.css">
+  </head>
+<style>.spoiler {
+  border: 1px solid #808080;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.spoiler-toggle {
+  font-weight: bold;
+  cursor: default;
+  padding: 5px;
+  font-size: 10px;
+  color: #808080;
+}
+.spoiler-text {
+  padding: 5px;
+}
+p.twotabs {
+    tab-size:2;
+    -moz-tab-size: 2;
+    -o-tab-size:  2;
+  white-space: pre-wrap;
+}
+</style>
+	
+<script>$(function(){
+    $('.spoiler-text').hide();
+    $('.spoiler-toggle').click(function(){
+        $(this).next().animate({height: 'toggle'});
+        if ($(this).html() == '<span class="glyphicon glyphicon-plus"></span> Spoiler1!'){
+            $(this).html('<span class="glyphicon glyphicon-minus"></span> Spoiler2!');
+        }
+        else{
+            $(this).html('<span class="glyphicon glyphicon-plus"></span> Spoiler3!');
+    }
+    }); // end spoiler-toggle
+}); // end document ready
+</script>
+
+	
+  <body>
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://danb13.github.io"><i class="fa fa-hand-spock-o" style="color:#999999"></i> DanB13</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Resum&#233;<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/DanBoddingtonCVOct16.pdf">Latest Resum&#233;</a></li>
+            <li><a href="https://uk.linkedin.com/in/dan-boddington-1223b7bb"><span class="fa fa-linkedin-square"></span>  LinkedIn</a></li>
+          </ul>
+        </li>
+        <li class="dropdown active">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="ProjectEuler.html">Project Euler Problems<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/ProjectEuler.html">AllProblems</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Solutions in C# (Not Active Yet)</a></li>
+            <li><a href="#">Solutions in Python (Not Active Yet)</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Commercial Projects<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="http://www.boddingtonsplanning.com">BoddingtonsPlanning(Website)</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">University Projects<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/PythonProgramme_Example.html">Quarkonium (Level 3)</a></li>
+            <li><a href="/ProgammingContent/LaTeX/TeamProject_Intro.html">LaTeX Project</a></li>
+        </ul>
+       </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Raspberry Pi Projects<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Wifi Controlled Lights (Coming Soon)</a></li>
+          </ul>
+        </li>
+      </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="mailto:danielcgboddington@gmail.com"><span class="glyphicon glyphicon-envelope"></span> Contact Me</a></li>
+        </ul>
+       </div>
+      </div>
+    </nav>
+  <div class="container">
+    <br>
+    <br>
+	  <h2>Project Euler Problem 67 Solution</h2>
+	  <h3>Problem 67: <a href="https://projecteuler.net/problem=67">Maximum Path Sum II</a></h3>
+<pre><p>By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
+
+   <font color="blue">3</font>
+  <font color="blue">7</font> 4
+ 2 <font color="blue">4</font> 6
+8 5 <font color="blue">9</font> 3
+
+That is, 3 + 7 + 4 + 9 = 23.
+
+Find the maximum total from top to bottom in triangle.txt (right click and 'Save Link/Target As...'), a 15K text file containing a triangle with one-hundred rows.
+
+NOTE: This is a much more difficult version of Problem 18. It is not possible to try every route to solve this problem, as there are 299 altogether! If you could check one trillion (1012) routes every second it would take over twenty billion years to check them all. There is an efficient algorithm to solve it. ;o)<p>
+</pre>
+<pre><code class="python"><p class="twotabs">
 import numpy as np
 input_array=np.zeros(100)
 output_array=[]
@@ -17,10 +139,58 @@ output_array=output_array.reshape(100,100)
 for i in range(len(output_array[:,0])-1,-1,-1):                                      
     for j in range(i):                             
         output_array[i-1,j]+=max(output_array[i,j],output_array[i,j+1])
-print 'Sum of maximum', int(output_array[0,0])    
-elapsed = (time.time()-start)
-print 'Time taken:', elapsed, 's'
+print 'Sum of maximum', int(output_array[0,0])
 
-</pre>
-</body>
-<html>
+</p></code></pre>
+
+<div class="container">
+    <div class="row">
+        <div class="spoiler">
+            <div class="spoiler-toggle"><span class="glyphicon glyphicon-plus"></span> My Comments</div>
+            <div class="spoiler-text">
+                <p>My Comments about the Solution are to follow here</p>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+    <footer id="myFooter">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h2 class="logo">  <a class="fa fa-hand-spock-o" style="color:white"></a> DanB13</h2>
+                </div>
+                <div class="col-sm-2">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="https://danb13.github.io/">Home</a></li>
+                        <li><a href="https://danb13.github.io/DanBoddingtonCVOct16.pdf">Latest Resum&#233;</a></li>
+                        <li><a href="/ProjectEuler.html">Python &amp; C# Examples</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <h5>About</h5>
+                    <ul>
+                        <li><a href="#">About Me</a></li>
+                        <li><a href="mailto:danielcgboddington@gmail.com">Contact Me</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+              </div>
+                <div class="col-sm-4">
+                    <div class="social-networks">
+                        <a href="https://uk.linkedin.com/in/dan-boddington-1223b7bb" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                        <a href="https://github.com/DanB13" class="github"><i class="fa fa-github"></i></a>
+                        <a href="https://projecteuler.net/" class="projecteuler"><i class="fa fa-file-code-o"></i></a>
+                    </div>
+                  <a href="mailto:danielcgboddington@gmail.com" type="button" class="btn btn-default">Contact Me</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>Created &amp; Designed by <strong>Dan Boddington</strong></p>
+        </div>
+    </footer>
+    </body>
+    </html>
+          
+          
