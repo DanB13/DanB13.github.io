@@ -1,7 +1,117 @@
-<DOCTYPE html>
-<html>
-<body>
-<pre>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>NewHomepage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/dracula.min.css">
+  <script>hljs.initHighlightingOnLoad();</script>
+  <link rel="stylesheet" href="/Footer-with-button-logo.css">
+  </head>
+<style>.spoiler {
+  border: 1px solid #808080;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.spoiler-toggle {
+  font-weight: bold;
+  cursor: default;
+  padding: 5px;
+  font-size: 10px;
+  color: #808080;
+}
+.spoiler-text {
+  padding: 5px;
+}
+p.twotabs {
+    tab-size:2;
+    -moz-tab-size: 2;
+    -o-tab-size:  2;
+  white-space: pre-wrap;
+}
+</style>
+	
+<script>$(function(){
+    $('.spoiler-text').hide();
+    $('.spoiler-toggle').click(function(){
+        $(this).next().animate({height: 'toggle'});
+        if ($(this).html() == '<span class="glyphicon glyphicon-plus"></span> Spoiler1!'){
+            $(this).html('<span class="glyphicon glyphicon-minus"></span> Spoiler2!');
+        }
+        else{
+            $(this).html('<span class="glyphicon glyphicon-plus"></span> Spoiler3!');
+    }
+    }); // end spoiler-toggle
+}); // end document ready
+</script>
+
+	
+  <body>
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://danb13.github.io"><i class="fa fa-hand-spock-o" style="color:#999999"></i> DanB13</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Resum&#233;<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/DanBoddingtonCVOct16.pdf">Latest Resum&#233;</a></li>
+            <li><a href="https://uk.linkedin.com/in/dan-boddington-1223b7bb"><span class="fa fa-linkedin-square"></span>  LinkedIn</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="ProjectEuler.html">Project Euler Problems<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/ProjectEuler.html">AllProblems</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Solutions in C# (Not Active Yet)</a></li>
+            <li><a href="#">Solutions in Python (Not Active Yet)</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Commercial Projects<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="http://www.boddingtonsplanning.com">BoddingtonsPlanning(Website)</a></li>
+          </ul>
+        </li>
+        <li class="dropdown active">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">University Projects<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/PythonProgramme_Example.html">Quarkonium (Level 3)</a></li>
+            <li><a href="/ProgammingContent/LaTeX/TeamProject_Intro.html">LaTeX Project</a></li>
+        </ul>
+       </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Raspberry Pi Projects<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Wifi Controlled Lights (Coming Soon)</a></li>
+          </ul>
+        </li>
+      </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="mailto:danielcgboddington@gmail.com"><span class="glyphicon glyphicon-envelope"></span> Contact Me</a></li>
+        </ul>
+       </div>
+      </div>
+    </nav>
+  <div class="container">
+    <br>
+    <br>
+	  <h2>University Group Project: LaTeX Markup Language Example</h2>
+<pre><code class="tex">
 \documentclass[a4paper ,12pt]{article}
 \usepackage{graphicx}
 \newcommand*{\plogo}{\fbox{$\mathcal{DU}$}} 
@@ -39,23 +149,23 @@ Abstract in here
 
 \subsection{Motivation}
 
-\subsubsection{Procter \& Gamble}
-This section needs to detail P\&G's reasons for conducting this investiagtion and possibel outcomes ie advertising stronger brand recognition
+\subsubsection{Procter \&amp; Gamble}
+This section needs to detail P\&amp;G's reasons for conducting this investiagtion and possibel outcomes ie advertising stronger brand recognition
 
 \section{Current Methods}
 
-This section needs to detail the current industry standards of measuring stain removal on hard and soft surfaces. ie LAB colour and mass difference- theory and current P\&G protocol. Comment on assessment of Removal and Redeposition. protocol can be in appendices.
+This section needs to detail the current industry standards of measuring stain removal on hard and soft surfaces. ie LAB colour and mass difference- theory and current P\&amp;G protocol. Comment on assessment of Removal and Redeposition. protocol can be in appendices.
 
-\section{Fats \& Removal}
+\section{Fats \&amp; Removal}
 \subsection{Triglycerides}
 Describing the composition of fats from long chain acid and glycerides - ester bond.\\Insert some pretty pictures here
 \subsection{Detergents}
 Detailing the way in which detergents work to break down fats during a washing cycle.\\Insert some pretty pictures here
 
 \section{Aims}
-\subsection{Composition of Stains on Hard \& Soft Surfaces}
+\subsection{Composition of Stains on Hard \&amp; Soft Surfaces}
 Detailing the brief from Natalie
-\subsection{Quantifying Stains on Hard \& Soft Surfaces}
+\subsection{Quantifying Stains on Hard \&amp; Soft Surfaces}
 Detailing the brief from Nazar
 
 \section{Potential Methods of Investigation}
@@ -68,7 +178,7 @@ Nuclear Magnetic Resonance (NMR) is a phenomenon observed as a consequence of th
 \includegraphics[height= 150pt, keepaspectratio=true, draft=true]{test_pic.jpg}
 \end{figure}\\\\
 
-In order to implement a NMR spectroscopy facility, there are several key factors to take into account. Firstly, the process is very sensitive to fluctuations in the environmental parameters in the locale of the equipment. These parameters include vibrations, variations in air temperature, and stray electromagnetic radiation. It would be necessary to undertake a survey of the site in order to assess its suitability for such experimental equipment. Secondly, the use of high magnetic field strengths causes issues with regards to both the effect on other nearby equipment, and the precautionary protocols which must be undertaken with respect to personnel health.\\\\Due to the high costs of using this method in our analysis, and the difficulties arising when building a suitable facility for the continued use of this method at P\&G it has been discounted.
+In order to implement a NMR spectroscopy facility, there are several key factors to take into account. Firstly, the process is very sensitive to fluctuations in the environmental parameters in the locale of the equipment. These parameters include vibrations, variations in air temperature, and stray electromagnetic radiation. It would be necessary to undertake a survey of the site in order to assess its suitability for such experimental equipment. Secondly, the use of high magnetic field strengths causes issues with regards to both the effect on other nearby equipment, and the precautionary protocols which must be undertaken with respect to personnel health.\\\\Due to the high costs of using this method in our analysis, and the difficulties arising when building a suitable facility for the continued use of this method at P\&amp;G it has been discounted.
 
 
 
@@ -78,10 +188,11 @@ In order to implement a NMR spectroscopy facility, there are several key factors
 \subsection{Infrared Spectroscopy Echo}
 Infrared spectroscopy is an analytical technique that used to recognize the structure of molecules from their characteristic absorptions in IR region\footnote{Coates, John. "Interpretation of infrared spectra, a practical approach." Encyclopedia of analytical chemistry (2000).}. The frequencies of absorptions correspond to the vibration of certain chemical bonds in the molecules. Actually, a molecule can have infinite number of vibrational modes while here we consider the modes that described in a threefold set of axes which are called normal modes of vibration. Those vibrations are divided into two parts, stretching and bending. In practice, most vibrations have almost the same energy and here we only look at the frequencies in infrared region. When the infrared radiation passes through the sample, radiation with the same frequency of vibration is absorbed. This technique is widely used in organic Chemistry to recognize the structure of a molecule. By comparing with the spectrum of known molecules, the composition of compounds can be determined\footnote{Duckett, Simon, and Bruce Gilbert. Foundations of spectroscopy. New York: Oxford University Press, 2000.}. 
 The absorption spectrum are very complicated for organic molecules as the number of vibrational modes increase rapidly with the increasing of molecule size. However, it is still possible to examine the composition of compound from the Infrared spectroscopy because certain absorptions can be associated with stretching or bending vibrations of particular bonds. For example, some special functional group such as C$-$H and C$=$O can be recognized and the structure of molecule can be confirmed by the transition frequency of those special functional groups. And the basic components of grease are glycerides, fatty acids, protein and carbohydrates, and the infrared spectroscopy of those chemicals were measured in a series of papers\footnote{O'Connor, Robert T., Elsie F. DuPr\'{e}, and R. O. Feuge. "The infrared spectra of mono-, di-, and triglycerides." Journal of the American Oil Chemists Society 32.2 (1955): 88-93.} \footnote{Sato, Tetsuo, Sumio Kawano, and Mutsuo Iwamoto. "Near infrared spectral patterns of fatty acid analysis from fats and oils." Journal of the American Oil Chemists Society 68.11 (1991): 827-833.}. Thus, it is possible to determine the composition of grease by infrared spectroscopy.
-Since the fluorescent agent in detergent cannot be excited in infrared region, infrared spectroscopy has relative low background noise. However, the absorption spectrum need to be obtained by passing infrared beam through the sample, [1] which means the sample has to be relative transparent while most of our samples are non-transparent\footnote{Stuart, Barbara. Infrared spectroscopy. John Wiley \& Sons, Inc., 2004.}. Thus, infrared spectroscopy is not an ideal solution to our problem.
+Since the fluorescent agent in detergent cannot be excited in infrared region, infrared spectroscopy has relative low background noise. However, the absorption spectrum need to be obtained by passing infrared beam through the sample, [1] which means the sample has to be relative transparent while most of our samples are non-transparent\footnote{Stuart, Barbara. Infrared spectroscopy. John Wiley \&amp; Sons, Inc., 2004.}. Thus, infrared spectroscopy is not an ideal solution to our problem.
 
 \subsection{Radioactivity Sarah}
-Doping a sample radioactively enables the detection of alpha, beta or gamma ray emission, dependent of the source used to dope the grease stain, when the nucleus of the specified atom decays\footnote{http://terpconnect.umd.edu/$\sim$alaporta/PHYS271$\_$s09/Phys271-Exp8-rev.pdf accessed at 18:39 on 23.02.2014}. If an initial quantity of radioactive material is specified for insertion into the grease sample and the known half-life for the doping agent known, then we can predict the expected loss via decay and deduct this from the radioactive material lost in the grease which is removed via washing.  This in theory could provide us with an effective way of quantifying the grease removal, but there are numerous flaws in both the method itself and safely implementing the procedure in a work place environment that do not make it a viable option.\\\\Before any testing can be done via this method, the correct safety protocol for handling radioactive material must be adhered to.  All sources must be handled at appropriate distances from the body, skin contact removed and shielding around the source added\footnote{http://ehs.unl.edu/sop/s-sealed$\_$sources.pdf accessed at 19.16 on 23.02.2014}. The sources must also be kept in heavily sealed and monitored conditions to reduce radioactive emissions into the surrounding area and everyone must be made aware of the full safety protocol and trained in this also [2]. Implementing this level of safety procedure would not be difficult; the difficulty comes in the cost and possible risks this method causes. Shielding and storage are expensive and require additional room to be created to house such things, alongside the large risk to safety of handling radioactive material as frequently as needed this method has obvious limitations of use in a chemical manufacturing and testing setting.\\\\Radioactive decay is itself a random process, so although a mean life time can be calculated it does not provide a particularly accurate measurement of calculating the count rate at any one time [1]. Although we can measure the detected rate with a Geiger counter in the pre and post wash samples to estimation of the decays lost without grease removal is not accurate enough to be able to quantify our grease stain as well as other methods.\\\\There may also be difficulty in doping the grease stains with the radioactive material. We need to ensure and even spread across the inhomogeneous stain in order to quantify the amount of grease we have, but finding a way to put the radioactive sample in the stain in such a way is almost impossible to find. Complex procedures to do this could be procured, but ease of mixing with the grease needs to considered and the process needs to be repeatable on a large scale with little error, which is difficult.\\\\Quantifying grease could work by this method if it was possible to conduct across Proctor and Gamble, however it would not provide us with an understanding of the constituents of the stains we are examining before and after washing. Other methods could be found that would enable us to test composition and quantify the stain with one piece of apparatus, which would reduce: costs, test timings, health and safety procedures that need to be adhered to and be easier to roll out across a large workforce with reduced training required. 
+Doping a sample radio
+ly enables the detection of alpha, beta or gamma ray emission, dependent of the source used to dope the grease stain, when the nucleus of the specified atom decays\footnote{http://terpconnect.umd.edu/$\sim$alaporta/PHYS271$\_$s09/Phys271-Exp8-rev.pdf accessed at 18:39 on 23.02.2014}. If an initial quantity of radioactive material is specified for insertion into the grease sample and the known half-life for the doping agent known, then we can predict the expected loss via decay and deduct this from the radioactive material lost in the grease which is removed via washing.  This in theory could provide us with an effective way of quantifying the grease removal, but there are numerous flaws in both the method itself and safely implementing the procedure in a work place environment that do not make it a viable option.\\\\Before any testing can be done via this method, the correct safety protocol for handling radioactive material must be adhered to.  All sources must be handled at appropriate distances from the body, skin contact removed and shielding around the source added\footnote{http://ehs.unl.edu/sop/s-sealed$\_$sources.pdf accessed at 19.16 on 23.02.2014}. The sources must also be kept in heavily sealed and monitored conditions to reduce radioactive emissions into the surrounding area and everyone must be made aware of the full safety protocol and trained in this also [2]. Implementing this level of safety procedure would not be difficult; the difficulty comes in the cost and possible risks this method causes. Shielding and storage are expensive and require additional room to be created to house such things, alongside the large risk to safety of handling radioactive material as frequently as needed this method has obvious limitations of use in a chemical manufacturing and testing setting.\\\\Radioactive decay is itself a random process, so although a mean life time can be calculated it does not provide a particularly accurate measurement of calculating the count rate at any one time [1]. Although we can measure the detected rate with a Geiger counter in the pre and post wash samples to estimation of the decays lost without grease removal is not accurate enough to be able to quantify our grease stain as well as other methods.\\\\There may also be difficulty in doping the grease stains with the radioactive material. We need to ensure and even spread across the inhomogeneous stain in order to quantify the amount of grease we have, but finding a way to put the radioactive sample in the stain in such a way is almost impossible to find. Complex procedures to do this could be procured, but ease of mixing with the grease needs to considered and the process needs to be repeatable on a large scale with little error, which is difficult.\\\\Quantifying grease could work by this method if it was possible to conduct across Proctor and Gamble, however it would not provide us with an understanding of the constituents of the stains we are examining before and after washing. Other methods could be found that would enable us to test composition and quantify the stain with one piece of apparatus, which would reduce: costs, test timings, health and safety procedures that need to be adhered to and be easier to roll out across a large workforce with reduced training required. 
 
 \subsection{Raman Scattering Echo}
 Raman spectroscopy is another common method to detect the vibrational modes of molecules beside infrared spectroscopy.Since the discovery of Raman scattering in 1928, it has become a powerful method to detect the instinct properties of compounds\footnote{Opilik, Lothar, Thomas Schmid, and Renato Zenobi. "Modern Raman Imaging: Vibrational Spectroscopy on the Micrometer and Nanometer Scales." Analytical Chemistry 6 (2013): 379-394. }. It has been successfully applied on the analysis of triglycerides and proteins\footnote{Rubio‐Diaz, Daniel E., and Luis E. Rodriguez‐Saona. "Application of Vibrational Spectroscopy for the Study of Heat-Induced Changes in Food Components." Handbook of Vibrational Spectroscopy (2010).}\footnote{Bresson, S., M. El Marssi, and B. Khelifa. "Conformational influences of the polymorphic forms on the CO and C–H stretching modes of five saturated monoacid triglycerides studied by Raman spectroscopy at various temperatures." Vibrational spectroscopy 40.2 (2006): 263-269.}. Imaging of complicated sample such as tissues and cells with high resolution is also realized via Raman spectroscopy\footnote{Evans, Conor L., et al. "Chemical imaging of tissue in vivo with video-rate coherent anti-Stokes Raman scattering microscopy." Proceedings of the National Academy of Sciences of the United States of America 102.46 (2005): 16807-16812.}\footnote{Nan, Xiaolin, Eric O. Potma, and X. Sunney Xie. "Nonperturbative chemical imaging of organelle transport in living cells with coherent anti-stokes Raman scattering microscopy." Biophysical journal 91.2 (2006): 728-735.}.  
@@ -113,7 +224,7 @@ The basic ‘procedure?? Protocol??’ : firstly, measure the Raman spectrum of 
 \subsection{Fluorophor Emission}
 \newpage
 
-\section{Methodology \& Results}
+\section{Methodology \&amp; Results}
 Some writing.\\
 \subsection{Raman Scattering on Hard Surfaces}
 Beginning\\
@@ -175,6 +286,43 @@ More text
 \section{Mass Difference Protocol}
 \section{Glassware Protocol}
 \end{document}
-</pre>
-</body>
-</html>
+</code></pre>
+    </div>
+<footer id="myFooter">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h2 class="logo">  <a class="fa fa-hand-spock-o" style="color:white"></a> DanB13</h2>
+                </div>
+                <div class="col-sm-2">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="https://danb13.github.io/">Home</a></li>
+                        <li><a href="https://danb13.github.io/DanBoddingtonCVOct16.pdf">Latest Resum&#233;</a></li>
+                        <li><a href="/ProjectEuler.html">Python &amp; C# Examples</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                    <h5>About</h5>
+                    <ul>
+                        <li><a href="#">About Me</a></li>
+                        <li><a href="mailto:danielcgboddington@gmail.com">Contact Me</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+              </div>
+                <div class="col-sm-4">
+                    <div class="social-networks">
+                        <a href="https://uk.linkedin.com/in/dan-boddington-1223b7bb" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                        <a href="https://github.com/DanB13" class="github"><i class="fa fa-github"></i></a>
+                        <a href="https://projecteuler.net/" class="projecteuler"><i class="fa fa-file-code-o"></i></a>
+                    </div>
+                  <a href="mailto:danielcgboddington@gmail.com" type="button" class="btn btn-default">Contact Me</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>Created &amp; Designed by <strong>Dan Boddington</strong></p>
+        </div>
+    </footer>
+    </body>
+    </html>
